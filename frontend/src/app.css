@@ -13,7 +13,7 @@ body {
 }
 
 .wrap {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 1.5rem;
 }
@@ -133,4 +133,103 @@ td {
 .user {
   font-size: 0.875rem;
   color: #475569;
+}
+
+.nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.navbtn {
+  padding: 0.35rem 0.9rem;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 0.85rem;
+}
+
+.navbtn.active {
+  background: #0369a1;
+  color: #fff;
+}
+
+.wallgrid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(420px, 1.4fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: stretch;
+}
+
+.stack label {
+  width: 100%;
+}
+
+.stack input {
+  width: 100%;
+  min-width: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.probe-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.85rem;
+  background: #f8fafc;
+}
+
+.probe-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.probe-code {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.probe-latest {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #334155;
+}
+
+button.mini {
+  padding: 0.2rem 0.55rem;
+  font-size: 0.78rem;
+  margin-right: 0.35rem;
+  background: #0369a1;
+}
+
+button.mini.danger {
+  background: #b91c1c;
+}
+
+@media (max-width: 860px) {
+  .wallgrid {
+    grid-template-columns: 1fr;
+  }
 }
