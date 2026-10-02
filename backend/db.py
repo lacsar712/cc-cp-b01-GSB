@@ -23,6 +23,28 @@ CREATE TABLE IF NOT EXISTS probe_readings (
     processed_at timestamptz
 );
 CREATE INDEX IF NOT EXISTS idx_probe_readings_status ON probe_readings (status, id);
+
+CREATE TABLE IF NOT EXISTS probe_aliases (
+    probe_id text PRIMARY KEY,
+    alias text NOT NULL,
+    created_by text NOT NULL,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    updated_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE UNIQUE INDEX IF NOT EXISTS uq_probe_aliases_alias
+    ON probe_aliases (alias);
+
+CREATE TABLE IF NOT EXISTS probe_alias_log (
+    id serial PRIMARY KEY,
+    probe_id text NOT NULL,
+    action text NOT NULL,
+    old_alias text,
+    new_alias text,
+    operator text NOT NULL,
+    created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_probe_alias_log_probe
+    ON probe_alias_log (probe_id, id);
 """
 
 
